@@ -3,20 +3,27 @@ package com.example.nori.myapplication;
 import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.format.Time;
+import android.util.Log;
+import android.view.GestureDetector;
+import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.util.Log;
-
-import android.text.format.Time;
-import android.view.GestureDetector;
 import android.view.MotionEvent;
-import android.view.GestureDetector.SimpleOnGestureListener;
+
+import com.android.volley.Request.Method;
+import com.android.volley.Response.Listener;
+import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class MyActivity extends Activity {
 
+    private static com.android.volley.RequestQueue mQueue;
     private JSONObject mJsonObject;
     private JSONObject mActionObject;
     private GestureDetector mGesDetect;
@@ -62,6 +69,21 @@ public class MyActivity extends Activity {
             Log.e("Error",ex.getMessage());
         }
 
+        mQueue = Volley.newRequestQueue(getApplicationContext());
+        String url = "http://ec2-54-191-155-159.us-west-2.compute.amazonaws.com/hello.json";
+        // 送信したいパラメーター
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("Json",mJsonObject.toString());
+        // リクエストの初期設定
+        MyRequest myRequest = new MyRequest(Method.POST, url, myListener, myErrorListener);
+        // リクエストのタイムアウトなどの設定
+        myRequest.setRetryPolicy(new com.android.volley.DefaultRetryPolicy(
+                10000,
+                com.android.volley.DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                com.android.volley.DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        myRequest.setParams(params);
+        // リクエストキューにリクエスト追加
+        mQueue.add(myRequest);
     }
 
     @Override
@@ -91,6 +113,25 @@ public class MyActivity extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    /**
+     * レスポンス受信のリスナー
+     */
+    private Listener<JSONObject> myListener = new Listener<JSONObject>() {
+        @Override
+        public void onResponse(JSONObject response) {
+            Log.d("TEST Success", response.toString());
+        }
+    };
+    /**
+     * リクエストエラーのリスナー
+     */
+    private com.android.volley.Response.ErrorListener myErrorListener = new com.android.volley.Response.ErrorListener() {
+        @Override
+        public void onErrorResponse(com.android.volley.VolleyError error) {
+            Log.e("TEST", error.getMessage());
+        }
+    };
 
     // 複雑なタッチイベントを取得
     private final SimpleOnGestureListener onGestureListener = new SimpleOnGestureListener() {
