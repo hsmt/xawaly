@@ -1,0 +1,30 @@
+2014-11-01 08:56:33 Error: [MissingControllerException] Controller class Php.phpController could not be found.
+Exception Attributes: array (
+  'class' => 'Php.phpController',
+  'plugin' => NULL,
+)
+Request URL: /php.php
+Stack Trace:
+#0 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 /Users/masanorihashimoto/Documents/github/xawaly/src/php.php(41): require('/Users/masanori...')
+#2 {main}
+2014-11-01 08:57:06 Error: [MissingControllerException] Controller class Php.phpController could not be found.
+Exception Attributes: array (
+  'class' => 'Php.phpController',
+  'plugin' => NULL,
+)
+Request URL: /php.php
+Stack Trace:
+#0 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 /Users/masanorihashimoto/Documents/github/xawaly/src/php.php(41): require('/Users/masanori...')
+#2 {main}
+2014-11-01 08:57:06 Error: [MissingControllerException] Controller class Php.phpController could not be found.
+Exception Attributes: array (
+  'class' => 'Php.phpController',
+  'plugin' => NULL,
+)
+Request URL: /php.php
+Stack Trace:
+#0 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 /Users/masanorihashimoto/Documents/github/xawaly/src/php.php(41): require('/Users/masanori...')
+#2 {main}
