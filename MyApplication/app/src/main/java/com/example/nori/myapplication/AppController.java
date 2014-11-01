@@ -7,10 +7,17 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONObject;
+
 /**
  * Created by nori on 14/11/01.
  */
 public class AppController extends Application {
+
+
+    public JSONObject mGlobalRecObject;
+    public JSONObject mGlobalPlayObject;
+    public boolean mIsPlayFlag;
 
     public static final String TAG = AppController.class
             .getSimpleName();
@@ -23,6 +30,9 @@ public class AppController extends Application {
     public void onCreate() {
         super.onCreate();
         mInstance = this;
+        mIsPlayFlag = false;
+        mGlobalRecObject = new JSONObject();
+        mGlobalPlayObject = new JSONObject();
     }
 
     public static synchronized AppController getInstance() {
@@ -33,7 +43,6 @@ public class AppController extends Application {
         if (mRequestQueue == null) {
             mRequestQueue = Volley.newRequestQueue(getApplicationContext());
         }
-
         return mRequestQueue;
     }
 

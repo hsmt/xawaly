@@ -1,8 +1,6 @@
 package com.example.nori.myapplication;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.format.Time;
@@ -11,8 +9,6 @@ import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
-import android.view.View;
-import android.widget.ImageButton;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -24,24 +20,17 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MyActivity extends Activity {
+public class XawalyActivity extends Activity {
 
-    AppController mApp;
     private static com.android.volley.RequestQueue mQueue;
     private JSONObject mJsonObject;
     private JSONObject mActionObject;
     private GestureDetector mGesDetect;
 
-    private String mSendURL="http://ec2-54-191-155-159.us-west-2.compute.amazonaws.com/getJson.php";
-    private String mGetURL="http://ec2-54-191-155-159.us-west-2.compute.amazonaws.com/getJson.php";
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my);
 
-        mApp = (AppController)this.getApplication();
         // GestureDetecotorクラスのインスタンス生成
         mGesDetect = new GestureDetector(this, onGestureListener);
         mJsonObject = new JSONObject();
@@ -53,68 +42,32 @@ public class MyActivity extends Activity {
         Log.d("Device", android.os.Build.MODEL);
         Log.v("Device", "-------------------------");
 
-        ImageButton ib = (ImageButton)findViewById(R.id.imageButton);
-        ib.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MyActivity.this, SecondActivity.class);
-                startActivity(i);
-            }
-        });
-
-       if( isPlay(getIntent()) )
-       {
-           mApp.mIsPlayFlag=true;
-
-       }else{
-           mApp.mIsPlayFlag=false;
-
-           try{
-               mJsonObject.put("date",date);
-               mJsonObject.put("device","Android");
-               mJsonObject.put("os","Android");
-               mJsonObject.put("name", Build.MODEL);
-           }catch(JSONException error){
-               Log.e("Error",error.getMessage());
-           }
-
-       }
-
-    }
-
-    private boolean isPlay(Intent intent){
-        String action = intent.getAction();
-        if (Intent.ACTION_VIEW.equals(action)) {
-            Uri uri = intent.getData();
-            if (uri != null) {
-                String session_id = uri.getQueryParameter("id");
-                if(session_id!=null){
-                    Log.d("Id :::::", session_id);
-
-                    return true;
-                }
-            }
+        try{
+            mJsonObject.put("date",date);
+            mJsonObject.put("device","Android");
+            mJsonObject.put("os","Android");
+            mJsonObject.put("name", Build.MODEL);
+        }catch(JSONException error){
+            Log.e("Error",error.getMessage());
         }
-        return false;
+
+
+
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
-
+    protected void onPause() {
+        super.onPause();
         try{
             mJsonObject.put("action",mActionObject);
+
             Log.v("Json",mJsonObject.toString());
         }catch(JSONException ex){
             Log.e("Error",ex.getMessage());
         }
-        if(!mApp.mIsPlayFlag)request(mSendURL,mJsonObject.toString());
-    }
-
-
-    public void request(String url,String Param){
 
         mQueue = Volley.newRequestQueue(getApplicationContext());
+        String url = "http://ec2-54-191-155-159.us-west-2.compute.amazonaws.com/getJson.php";
         // 送信したいパラメーター
         Map<String, String> params = new HashMap<String, String>();
         params.put("Json",mJsonObject.toString());
@@ -164,19 +117,7 @@ public class MyActivity extends Activity {
     private Response.Listener<JSONObject> myListener = new Response.Listener<JSONObject>() {
         @Override
         public void onResponse(JSONObject response) {
-
-           // Log.d("TEST Success", response.toString());
-
-            if(mApp.mIsPlayFlag)
-            {
-                try{
-                    JSONObject jobject = new JSONObject(response.toString());
-
-                }catch (JSONException ex){
-
-                }
-
-            }
+            Log.d("TEST Success", response.toString());
         }
     };
     /**
