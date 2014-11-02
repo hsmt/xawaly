@@ -1,39 +1,36 @@
 package com.example.nori.myapplication;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.hardware.input.InputManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.text.format.Time;
 import android.util.Log;
 import android.view.GestureDetector;
+import android.view.InputDevice;
+import android.view.InputEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.toolbox.Volley;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.lang.reflect.Method;
 
 public class MyActivity extends Activity {
 
     AppController mApp;
-    private static com.android.volley.RequestQueue mQueue;
-    private JSONObject mJsonObject;
-    private JSONObject mActionObject;
-    private GestureDetector mGesDetect;
 
-    private String mSendURL="http://ec2-54-191-155-159.us-west-2.compute.amazonaws.com/getJson.php";
-    private String mGetURL="http://ec2-54-191-155-159.us-west-2.compute.amazonaws.com/getJson.php";
+    boolean mPlayFlag;
+    int margin=60;
+    private GestureDetector mGesDetect;// = new GestureDetector(this, onGestureListener);
 
 
     @Override
@@ -44,8 +41,6 @@ public class MyActivity extends Activity {
         mApp = (AppController)this.getApplication();
         // GestureDetecotorクラスのインスタンス生成
         mGesDetect = new GestureDetector(this, onGestureListener);
-        mJsonObject = new JSONObject();
-        mActionObject = new JSONObject();
         Time time = new Time();
         time.setToNow();
         String date = time.year + "-" + (time.month+1) + "-" + time.monthDay+" "+time.hour+":"+time.minute+":"+time.second;
@@ -53,31 +48,166 @@ public class MyActivity extends Activity {
         Log.d("Device", android.os.Build.MODEL);
         Log.v("Device", "-------------------------");
 
-        ImageButton ib = (ImageButton)findViewById(R.id.imageButton);
-        ib.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MyActivity.this, SecondActivity.class);
-                startActivity(i);
-            }
-        });
+        {
+            ImageButton ib = (ImageButton) findViewById(R.id.imageButton);
+            ib.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+
+                    // TODO Auto-generated method stub
+                    Log.v("Gesture","-------------------------");
+                    Log.v("Gesture", "onSingleTapConfirmed");
+                    Log.v("Gesture", "X:"+(v.getX()+margin)+" Y: "+(v.getY()+margin));
+                    Log.v("Gesture","-------------------------");
+
+                    JSONObject json = new JSONObject();
+                    Time time = new Time();
+                    time.setToNow();
+
+                    String date = time.year + "-" + (time.month+1) + "-" + time.monthDay+" "+time.hour+":"+time.minute+":"+time.second;
+                    try{
+                        json.put("current-time",date);
+                        json.put("time1",1000);
+                        json.put("time2",-1);
+                        json.put("X1",v.getX()+margin);
+                        json.put("Y1",v.getY()+margin);
+                        json.put("X2",-1);
+                        json.put("Y2",-1);
+                        json.put("ActionType","onSingleTapConfirmed");
+                        mApp.mXawalyJSONObject.setAction(json);
+                    }catch(JSONException error){
+                        Log.e("Error",error.getMessage());
+                    }
+                    v.setVisibility(View.INVISIBLE);
+                    Log.e("button1", "button1");
+                    Intent i = new Intent(MyActivity.this, SecondActivity.class);
+                    startActivity(i);
+                }
+            });
+        }
+
+        {
+            ImageButton ib = (ImageButton) findViewById(R.id.imageButton2);
+            ib.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+
+                    // TODO Auto-generated method stub
+                    Log.v("Gesture","-------------------------");
+                    Log.v("Gesture", "onSingleTapConfirmed");
+                    Log.v("Gesture", "X:"+(v.getX()+margin)+" Y: "+(v.getY()+margin));
+                    Log.v("Gesture","-------------------------");
+
+                    JSONObject json = new JSONObject();
+                    Time time = new Time();
+                    time.setToNow();
+                    String date = time.year + "-" + (time.month+1) + "-" + time.monthDay+" "+time.hour+":"+time.minute+":"+time.second;
+                    try{
+                        json.put("current-time",date);
+                        json.put("time1",1000);
+                        json.put("time2",-1);
+                        json.put("X1",v.getX()+margin);
+                        json.put("Y1",v.getY()+margin);
+                        json.put("X2",-1);
+                        json.put("Y2",-1);
+                        json.put("ActionType","onSingleTapConfirmed");
+                        mApp.mXawalyJSONObject.setAction(json);
+                    }catch(JSONException error){
+                        Log.e("Error",error.getMessage());
+                    }
+                    v.setVisibility(View.INVISIBLE);
+                    Log.e("button2","button2");
+                }
+            });
+
+        }
+
+        {
+            ImageButton ib = (ImageButton) findViewById(R.id.imageButton3);
+            ib.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+
+                    // TODO Auto-generated method stub
+                    Log.v("Gesture","-------------------------");
+                    Log.v("Gesture", "onSingleTapConfirmed");
+                    Log.v("Gesture", "X:"+(v.getX()+margin)+" Y: "+(v.getY()+margin));
+                    Log.v("Gesture","-------------------------");
+
+                    JSONObject json = new JSONObject();
+                    Time time = new Time();
+                    time.setToNow();
+                    String date = time.year + "-" + (time.month+1) + "-" + time.monthDay+" "+time.hour+":"+time.minute+":"+time.second;
+                    try{
+                        json.put("current-time",date);
+                        json.put("time1",1000);
+                        json.put("time2",-1);
+                        json.put("X1",v.getX()+margin);
+                        json.put("Y1",v.getY()+margin);
+                        json.put("X2",-1);
+                        json.put("Y2",-1);
+                        json.put("ActionType","onSingleTapConfirmed");
+                        mApp.mXawalyJSONObject.setAction(json);
+                    }catch(JSONException error){
+                        Log.e("Error",error.getMessage());
+                    }
+                    v.setVisibility(View.INVISIBLE);
+                    Log.e("button3", "button3");
+                }
+            });
+        }
+
+        {
+            ImageButton ib = (ImageButton) findViewById(R.id.imageButton4);
+            ib.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+
+                    // TODO Auto-generated method stub
+                    Log.v("Gesture","-------------------------");
+                    Log.v("Gesture", "onSingleTapConfirmed");
+                    Log.v("Gesture", "X:"+(v.getX()+margin)+" Y: "+(v.getY()+margin));
+                    Log.v("Gesture","-------------------------");
+
+                    JSONObject json = new JSONObject();
+                    Time time = new Time();
+                    time.setToNow();
+                    String date = time.year + "-" + (time.month+1) + "-" + time.monthDay+" "+time.hour+":"+time.minute+":"+time.second;
+                    try{
+                        json.put("current-time",date);
+                        json.put("time1",1000);
+                        json.put("time2",-1);
+                        json.put("X1",v.getX()+margin);
+                        json.put("Y1",v.getY()+margin);
+                        json.put("X2",-1);
+                        json.put("Y2",-1);
+                        json.put("ActionType","onSingleTapConfirmed");
+                        mApp.mXawalyJSONObject.setAction(json);
+                    }catch(JSONException error){
+                        Log.e("Error",error.getMessage());
+                    }
+                    v.setVisibility(View.INVISIBLE);
+                    Log.e("button4","button4");
+                }
+            });
+        }
 
        if( isPlay(getIntent()) )
        {
+           Log.d("ISPLAY","HOGE");
            mApp.mIsPlayFlag=true;
+           mApp.getPlayData();
 
        }else{
            mApp.mIsPlayFlag=false;
-
-           try{
-               mJsonObject.put("date",date);
-               mJsonObject.put("device","Android");
-               mJsonObject.put("os","Android");
-               mJsonObject.put("name", Build.MODEL);
-           }catch(JSONException error){
-               Log.e("Error",error.getMessage());
-           }
-
+           mApp.mXawalyJSONObject.setDate(date);
+           mApp.mXawalyJSONObject.setDevice("Android");
+           mApp.mXawalyJSONObject.setOS("Android "+Build.VERSION.RELEASE);
+           mApp.mXawalyJSONObject.setmName(Build.MODEL);
        }
 
     }
@@ -89,8 +219,8 @@ public class MyActivity extends Activity {
             if (uri != null) {
                 String session_id = uri.getQueryParameter("id");
                 if(session_id!=null){
+                    mApp.mTrackId = session_id;
                     Log.d("Id :::::", session_id);
-
                     return true;
                 }
             }
@@ -99,36 +229,158 @@ public class MyActivity extends Activity {
     }
 
     @Override
+    protected void onStart(){
+        super.onStart();
+        if(mGesDetect==null)mGesDetect = new GestureDetector(this, onGestureListener);
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+
+        if(mApp.mIsPlayFlag) {
+            Thread trd = new Thread(new Runnable() {
+                public void run() {
+
+                    try {
+                        Thread.sleep(1000);
+                    } catch (Exception e) {
+                    }
+                    long downTime = SystemClock.uptimeMillis() + 5000;
+                    long eventTime = SystemClock.uptimeMillis() + 5500;
+                    pushButton3(downTime, eventTime);
+                    try {
+                        Thread.sleep(6000);
+                    } catch (Exception e) {
+                    }
+                    long downTime2 = SystemClock.uptimeMillis() + 14000;
+                    long eventTime2 = SystemClock.uptimeMillis() + 14500;
+                    pushButton2(downTime2, eventTime2);
+
+                    try {
+                        Thread.sleep(6000);
+                    } catch (Exception e) {
+                    }
+                    long downTime3 = SystemClock.uptimeMillis() + 24000;
+                    long eventTime3 = SystemClock.uptimeMillis() + 24500;
+                    pushButton1(downTime2, eventTime2);
+                    //sampleFunc();
+                }
+            });
+            trd.start();
+        }
+    }
+
+    public void sampleFunc(){
+        event();
+    }
+
+
+    public void pushButton4(long downTime,long eventTime){
+        Log.d("pushButton4 ","Event");
+        int margin=0;
+        try{
+            InputManager inputManager = (InputManager) getSystemService(Context.INPUT_SERVICE);
+            Method injectInputEvent = InputManager.class.getDeclaredMethod("injectInputEvent", InputEvent.class, int.class);
+            MotionEvent event = MotionEvent.obtain(downTime, eventTime, MotionEvent.ACTION_DOWN, 670+margin, 180+margin, 0);
+            event.setSource(InputDevice.SOURCE_TOUCHSCREEN);
+            injectInputEvent.invoke(inputManager, event, 0);
+            event = MotionEvent.obtain(downTime, eventTime, MotionEvent.ACTION_UP, 670+margin, 180+margin, 0);
+            event.setSource(InputDevice.SOURCE_TOUCHSCREEN);
+            injectInputEvent.invoke(inputManager, event, 0);
+        }catch (Exception ex){
+
+        }
+    }
+
+    public void pushButton3(long downTime,long eventTime)
+    {
+        Log.d("pushButton3 ","Event");
+        int margin=0;
+        try{
+            InputManager inputManager = (InputManager) getSystemService(Context.INPUT_SERVICE);
+            Method injectInputEvent = InputManager.class.getDeclaredMethod("injectInputEvent", InputEvent.class, int.class);
+            MotionEvent event = MotionEvent.obtain(downTime, eventTime, MotionEvent.ACTION_DOWN, 120+margin, 160+margin, 0);
+            event.setSource(InputDevice.SOURCE_TOUCHSCREEN);
+            injectInputEvent.invoke(inputManager, event, 0);
+            event = MotionEvent.obtain(downTime, eventTime, MotionEvent.ACTION_UP, 120+margin, 160+margin, 0);
+            event.setSource(InputDevice.SOURCE_TOUCHSCREEN);
+            injectInputEvent.invoke(inputManager, event, 0);
+        }catch (Exception ex){
+
+        }
+    }
+
+
+
+    public void pushButton2(long downTime,long eventTime){
+        Log.d("pushButton2 ","Event");
+        int margin=0;
+        try{
+            InputManager inputManager = (InputManager) getSystemService(Context.INPUT_SERVICE);
+            Method injectInputEvent = InputManager.class.getDeclaredMethod("injectInputEvent", InputEvent.class, int.class);
+            MotionEvent event = MotionEvent.obtain(downTime, eventTime, MotionEvent.ACTION_DOWN, 670+margin, 1050+margin, 0);
+            event.setSource(InputDevice.SOURCE_TOUCHSCREEN);
+            injectInputEvent.invoke(inputManager, event, 0);
+            event = MotionEvent.obtain(downTime, eventTime, MotionEvent.ACTION_UP, 670+margin, 1050+margin, 0);
+            event.setSource(InputDevice.SOURCE_TOUCHSCREEN);
+            injectInputEvent.invoke(inputManager, event, 0);
+        }catch (Exception ex){
+
+        }
+    }
+    public void pushButton1(long downTime, long eventTime)
+    {
+        Log.d("pushButton1 ","Event");
+        int margin=0;
+        try{
+            InputManager inputManager = (InputManager) getSystemService(Context.INPUT_SERVICE);
+            Method injectInputEvent = InputManager.class.getDeclaredMethod("injectInputEvent", InputEvent.class, int.class);
+            MotionEvent event = MotionEvent.obtain(downTime, eventTime, MotionEvent.ACTION_DOWN, 100+margin, 1050+margin, 0);
+            event.setSource(InputDevice.SOURCE_TOUCHSCREEN);
+            injectInputEvent.invoke(inputManager, event, 0);
+            event = MotionEvent.obtain(downTime, eventTime, MotionEvent.ACTION_UP, 100+margin, 1050+margin, 0);
+            event.setSource(InputDevice.SOURCE_TOUCHSCREEN);
+            injectInputEvent.invoke(inputManager, event, 0);
+        }catch (Exception ex){
+
+        }
+
+    }
+
+
+    protected void event(){
+       // long downTime = SystemClock.uptimeMillis()+5000;
+      //  long eventTime = SystemClock.uptimeMillis() + 5500;
+       //  pushButton1(downTime,eventTime);
+     //   Log.v("MM",""+SystemClock.uptimeMillis());
+       //   pushButton2(downTime, eventTime);
+     //    pushButton3(downTime+(long)4000,eventTime+eventTime+(long)4100);
+     //    pushButton4(downTime+(long)6000,eventTime+eventTime+(long)6100);
+       // pushButton3(downTime+600,eventTime+600);
+       // pushButton4(downTime+100,eventTime+100);
+    }
+
+
+    public synchronized void sleep(long msec)
+    {
+        try
+        {
+            wait(msec);
+        }catch(InterruptedException e){}
+    }
+
+    @Override
     protected void onStop() {
+        mGesDetect=null;
+        JSONObject jsonObject = mApp.mXawalyJSONObject.compileData();
+        mApp.sendActionDate(jsonObject);
+        Log.d("SendJson"," "+jsonObject.toString());
         super.onStop();
 
-        try{
-            mJsonObject.put("action",mActionObject);
-            Log.v("Json",mJsonObject.toString());
-        }catch(JSONException ex){
-            Log.e("Error",ex.getMessage());
-        }
-        if(!mApp.mIsPlayFlag)request(mSendURL,mJsonObject.toString());
     }
 
 
-    public void request(String url,String Param){
-
-        mQueue = Volley.newRequestQueue(getApplicationContext());
-        // 送信したいパラメーター
-        Map<String, String> params = new HashMap<String, String>();
-        params.put("Json",mJsonObject.toString());
-        // リクエストの初期設定
-        MyRequest myRequest = new MyRequest(Request.Method.POST, url, myListener, myErrorListener);
-        // リクエストのタイムアウトなどの設定
-        myRequest.setRetryPolicy(new com.android.volley.DefaultRetryPolicy(
-                10000,
-                com.android.volley.DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                com.android.volley.DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        myRequest.setParams(params);
-        // リクエストキューにリクエスト追加
-        mQueue.add(myRequest);
-    }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -158,36 +410,7 @@ public class MyActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * レスポンス受信のリスナー
-     */
-    private Response.Listener<JSONObject> myListener = new Response.Listener<JSONObject>() {
-        @Override
-        public void onResponse(JSONObject response) {
 
-           // Log.d("TEST Success", response.toString());
-
-            if(mApp.mIsPlayFlag)
-            {
-                try{
-                    JSONObject jobject = new JSONObject(response.toString());
-
-                }catch (JSONException ex){
-
-                }
-
-            }
-        }
-    };
-    /**
-     * リクエストエラーのリスナー
-     */
-    private com.android.volley.Response.ErrorListener myErrorListener = new com.android.volley.Response.ErrorListener() {
-        @Override
-        public void onErrorResponse(com.android.volley.VolleyError error) {
-            Log.e("TEST", error.getMessage());
-        }
-    };
 
     // 複雑なタッチイベントを取得
     private final GestureDetector.SimpleOnGestureListener onGestureListener = new GestureDetector.SimpleOnGestureListener() {
@@ -213,7 +436,9 @@ public class MyActivity extends Activity {
                 json.put("Y1",e.getY());
                 json.put("X2",-1);
                 json.put("Y2",-1);
-                mActionObject.put("onDoubleTap",json);
+                json.put("ActionType","onDoubleTap");
+
+                mApp.mXawalyJSONObject.setAction(json);
             }catch(JSONException error){
                 Log.e("Error",error.getMessage());
             }
@@ -241,7 +466,8 @@ public class MyActivity extends Activity {
                 json.put("Y1",e.getY());
                 json.put("X2",-1);
                 json.put("Y2",-1);
-                mActionObject.put("onDoubleTapEvent",json);
+                json.put("ActionType","onDoubleTapEvent");
+                mApp.mXawalyJSONObject.setAction(json);
             }catch(JSONException error){
                 Log.e("Error",error.getMessage());
             }
@@ -269,7 +495,8 @@ public class MyActivity extends Activity {
                 json.put("Y1",e.getY());
                 json.put("X2",-1);
                 json.put("Y2",-1);
-                mActionObject.put("onDown",json);
+                json.put("ActionType","onDown");
+                mApp.mXawalyJSONObject.setAction(json);
             }catch(JSONException error){
                 Log.e("Error",error.getMessage());
             }
@@ -299,7 +526,8 @@ public class MyActivity extends Activity {
                 json.put("Y1",e1.getY());
                 json.put("X2",e2.getX());
                 json.put("Y2",e2.getY());
-                mActionObject.put("onFling",json);
+                json.put("ActionType","onFling");
+                mApp.mXawalyJSONObject.setAction(json);
             }catch(JSONException error){
                 Log.e("Error",error.getMessage());
             }
@@ -328,11 +556,11 @@ public class MyActivity extends Activity {
                 json.put("Y1",e.getY());
                 json.put("X2",-1);
                 json.put("Y2",-1);
-                mActionObject.put("onLongPress",json);
+                json.put("ActionType","onLongPress");
+                mApp.mXawalyJSONObject.setAction(json);
             }catch(JSONException error){
                 Log.e("Error",error.getMessage());
             }
-
             super.onLongPress(e);
         }
 
@@ -359,7 +587,8 @@ public class MyActivity extends Activity {
                 json.put("Y1",e1.getY());
                 json.put("X2",e2.getX());
                 json.put("Y2",e2.getY());
-                mActionObject.put("onScroll",json);
+                json.put("ActionType","onScroll");
+                mApp.mXawalyJSONObject.setAction(json);
             }catch(JSONException error){
                 Log.e("Error",error.getMessage());
             }
@@ -387,7 +616,8 @@ public class MyActivity extends Activity {
                 json.put("Y1",e.getY());
                 json.put("X2",-1);
                 json.put("Y2",-1);
-                mActionObject.put("onShowPress",json);
+                json.put("ActionType","onShowPress");
+                mApp.mXawalyJSONObject.setAction(json);
             }catch(JSONException error){
                 Log.e("Error",error.getMessage());
             }
@@ -415,7 +645,8 @@ public class MyActivity extends Activity {
                 json.put("Y1",e.getY());
                 json.put("X2",-1);
                 json.put("Y2",-1);
-                mActionObject.put("onSingleTapConfirmed",json);
+                json.put("ActionType","onSingleTapConfirmed");
+                mApp.mXawalyJSONObject.setAction(json);
             }catch(JSONException error){
                 Log.e("Error",error.getMessage());
             }
@@ -444,7 +675,8 @@ public class MyActivity extends Activity {
                 json.put("Y1",e.getY());
                 json.put("X2",-1);
                 json.put("Y2",-1);
-                mActionObject.put("onSingleTapUp",json);
+                json.put("ActionType","onSingleTapUp");
+                mApp.mXawalyJSONObject.setAction(json);
             }catch(JSONException error){
                 Log.e("Error",error.getMessage());
             }
