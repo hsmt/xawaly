@@ -11,7 +11,54 @@
     <body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-
+    <script src="js/highcharts.js"></script>
+    <script src="js/modules/exporting.js"></script>
+        <script type="text/javascript">
+        $(function () {
+            $('#column-chart-container').highcharts({
+                chart: {
+                    type: 'column'
+                },
+                exporting: {
+                    enabled: false
+                },
+                legend: {
+                    enabled: false
+                },
+                title: {
+                    text: 'Weekly Average Session Time'
+                },
+                xAxis: {
+                    categories: [
+                        '10/27',
+                        '10/28',
+                        '10/29',
+                        '10/30',
+                        '10/31',
+                        '11/1',
+                        '11/2'
+                    ]
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: 'Time (minutes)'
+                    }
+                },
+                plotOptions: {
+                    column: {
+                        pointPadding: 0.2,
+                        borderWidth: 0
+                    }
+                },
+                series: [{
+                    name: 'Average Session Time',
+                    data: [10.0, 13.6, 14.5, 16.4, 14.1, 15.6, 14.4]
+                },
+                ]
+            });
+        });
+    </script>
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -40,9 +87,7 @@
             <a href="./app1_sessions.html" class="list-group-item">Sessions</a>
           </div>
           <div class="cl-sm-7">
-            <table class="table-bordered">
-              <tr><th>App Version</th><td>1.02</td></tr>
-            </table>
+              <div id="column-chart-container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
           </div>
       </div>
     </div>
