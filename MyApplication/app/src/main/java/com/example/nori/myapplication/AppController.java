@@ -25,8 +25,10 @@ public class AppController extends Application {
    // public int mActionNumber;
     public String mTrackId;
 
-    private String mSendURL="http://ec2-54-191-155-159.us-west-2.compute.amazonaws.com/getJson.php";
-    private String mGetURL="http://ec2-54-191-155-159.us-west-2.compute.amazonaws.com/tracks/record/";
+   // private String mSendURL="http://ec2-54-191-155-159.us-west-2.compute.amazonaws.com/getJson.php";
+    private String mGetURL="http://ec2-54-191-155-159.us-west-2.compute.amazonaws.com/getJson.php";
+    private String mSendURL="http://172.16.30.6:8888/tracks/insert/";
+    //  private String mGetURL="http://172.16.30.6:8888/tracks/record/1.json";
 
     public XawalyScheduleManager mXawalyScheduleManager;
     public XawalyJSONObject mXawalyJSONObject;
@@ -69,7 +71,7 @@ public class AppController extends Application {
         mQueue = Volley.newRequestQueue(getApplicationContext());
         // 送信したいパラメーター
         Map<String, String> params = new HashMap<String, String>();
-        params.put("Json", Param);
+        params.put("data", Param);
         // リクエストの初期設定
         MyRequest myRequest = new MyRequest(Request.Method.POST, url, myListener, myErrorListener);
         // リクエストのタイムアウトなどの設定
