@@ -320,3 +320,77 @@ Stack Trace:
 #7 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(TracksController), Object(CakeRequest))
 #8 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #9 {main}
+2014-11-02 04:54:19 Error: [MissingViewException] View file "/Users/masanorihashimoto/Documents/github/xawaly/src/app/View/Tracks/json/record.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/Users/masanorihashimoto/Documents/github/xawaly/src/app/View/Tracks/json/record.ctp',
+)
+Request URL: /tracks/record/1.json
+Stack Trace:
+#0 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/View/JsonView.php(107): View->_getViewFileName(NULL)
+#1 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Controller/Controller.php(954): JsonView->render(NULL, NULL)
+#2 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(TracksController), Object(CakeRequest))
+#4 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-11-02 05:00:26 Error: [NotFoundException] Invalid post
+Request URL: /tracks/record/1.json
+Stack Trace:
+#0 [internal function]: TracksController->record('1')
+#1 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(TracksController), Array)
+#2 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#3 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(TracksController), Object(CakeRequest))
+#4 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-11-02 05:41:34 Error: [MissingActionException] Action TracksController::sample() could not be found.
+Exception Attributes: array (
+  'controller' => 'TracksController',
+  'action' => 'sample',
+)
+Request URL: /tracks/sample/1.json
+Stack Trace:
+#0 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(TracksController), Object(CakeRequest))
+#2 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-11-02 05:41:36 Error: [MissingActionException] Action TracksController::sample() could not be found.
+Exception Attributes: array (
+  'controller' => 'TracksController',
+  'action' => 'sample',
+)
+Request URL: /tracks/sample/1.json
+Stack Trace:
+#0 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(TracksController), Object(CakeRequest))
+#2 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-11-02 05:41:42 Error: [MissingActionException] Action TracksController::sample() could not be found.
+Exception Attributes: array (
+  'controller' => 'TracksController',
+  'action' => 'sample',
+)
+Request URL: /tracks/sample/1.json
+Stack Trace:
+#0 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(TracksController), Object(CakeRequest))
+#2 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-11-02 05:41:55 Error: [MissingActionException] Action TracksController::sample() could not be found.
+Exception Attributes: array (
+  'controller' => 'TracksController',
+  'action' => 'sample',
+)
+Request URL: /tracks/sample/1.json
+Stack Trace:
+#0 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(TracksController), Object(CakeRequest))
+#2 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-11-02 06:05:24 Error: [NotFoundException] Invalid post
+Request URL: /tracks/record/3.json
+Stack Trace:
+#0 [internal function]: TracksController->record('3')
+#1 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(TracksController), Array)
+#2 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#3 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(TracksController), Object(CakeRequest))
+#4 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}

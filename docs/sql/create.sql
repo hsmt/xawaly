@@ -3,7 +3,7 @@ CREATE TABLE tracks (
     device VARCHAR(50),
     os VARCHAR(50),
     name VARCHAR(50),
-    action TEXT,
+    actions TEXT,
     start_datetime DATETIME DEFAULT NULL,
     end_datetime DATETIME DEFAULT NULL,
     created DATETIME DEFAULT NULL,
@@ -14,7 +14,7 @@ INSERT INTO tracks (
   device,
   os,
   name,
-  action,
+  actions,
   start_datetime,
   end_datetime
 )

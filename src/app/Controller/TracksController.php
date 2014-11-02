@@ -4,15 +4,17 @@ App::uses('Controller', 'Controller');
 class TracksController extends Controller {
 //	public $components = array('RequestHandler');
 		
-	public function sample($id = null) {
+	public function record($id = null) {
 		if (!$id) {
 			throw new NotFoundException(__('Invalid post'));
 		}
-		$session = $this->Track->findById($id);
-		if (!$session) {
+		$track = $this->Track->findById($id)['Track'];
+		if (!$track) {
             throw new NotFoundException(__('Invalid post'));
         }
 		$this->viewClass = 'Json';
-		$this->set('session', $session);
+		$result = json_decode($track['actions'], true);
+		$this->set(compact('result'));
+		$this->set('_serialize', 'result');
 	}
 }
