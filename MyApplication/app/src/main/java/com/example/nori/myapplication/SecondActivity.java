@@ -1,3 +1,7 @@
+/**
+ *  Copy right norifumi kawamoto 2014.11.2
+ *
+ */
 package com.example.nori.myapplication;
 
 import android.app.Activity;

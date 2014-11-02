@@ -1,3 +1,7 @@
+/**
+ *  Copy right norifumi kawamoto 2014.11.2
+ *
+ */
 package com.example.nori.myapplication;
 import android.app.Application;
 import android.text.TextUtils;
@@ -15,6 +19,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+
 /**
  * Created by nori on 14/11/01.
  */
@@ -25,9 +30,9 @@ public class AppController extends Application {
    // public int mActionNumber;
     public String mTrackId;
 
-   // private String mSendURL="http://ec2-54-191-155-159.us-west-2.compute.amazonaws.com/getJson.php";
-    private String mGetURL="http://ec2-54-191-155-159.us-west-2.compute.amazonaws.com/getJson.php";
-    private String mSendURL="http://172.16.30.6:8888/tracks/insert/";
+    private String mSendURL="http://ec2-54-191-155-159.us-west-2.compute.amazonaws.com/getJson.php";
+    private String mGetURL="http://ec2-54-191-155-159.us-west-2.compute.amazonaws.com/sendJson.php";
+    //private String mSendURL="http://172.16.30.6:8888/tracks/insert/";
     //  private String mGetURL="http://172.16.30.6:8888/tracks/record/1.json";
 
     public XawalyScheduleManager mXawalyScheduleManager;
