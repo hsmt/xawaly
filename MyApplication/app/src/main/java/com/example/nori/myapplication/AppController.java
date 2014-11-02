@@ -1,23 +1,35 @@
 package com.example.nori.myapplication;
 import android.app.Application;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by nori on 14/11/01.
  */
 public class AppController extends Application {
 
-
-    public JSONObject mGlobalRecObject;
-    public JSONObject mGlobalPlayObject;
+    private static com.android.volley.RequestQueue mQueue;;
     public boolean mIsPlayFlag;
+   // public int mActionNumber;
+    public String mTrackId;
+
+    private String mSendURL="http://ec2-54-191-155-159.us-west-2.compute.amazonaws.com/getJson.php";
+    private String mGetURL="http://ec2-54-191-155-159.us-west-2.compute.amazonaws.com/tracks/record/";
+
+    public XawalyScheduleManager mXawalyScheduleManager;
+    public XawalyJSONObject mXawalyJSONObject;
 
     public static final String TAG = AppController.class
             .getSimpleName();
@@ -29,11 +41,78 @@ public class AppController extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
         mInstance = this;
         mIsPlayFlag = false;
-        mGlobalRecObject = new JSONObject();
-        mGlobalPlayObject = new JSONObject();
+        mIsPlayFlag = false;
+        mXawalyScheduleManager = XawalyScheduleManager.getInstance();
+        mXawalyJSONObject = new XawalyJSONObject();
     }
+
+
+    @Override
+    public void onTerminate(){
+        JSONObject jsonObject = mXawalyJSONObject.compileData();
+        request(mSendURL,jsonObject.toString());
+        Log.d("SendJson"," "+jsonObject.toString());
+        super.onTerminate();
+    }
+
+    public void getPlayData(){
+        request(mGetURL+mTrackId+".json","");
+    }
+
+    public void sendActionDate(JSONObject jo){ request(mSendURL,jo.toString());}
+
+    public void request(String url,String Param){
+
+        mQueue = Volley.newRequestQueue(getApplicationContext());
+        // 送信したいパラメーター
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("Json", Param);
+        // リクエストの初期設定
+        MyRequest myRequest = new MyRequest(Request.Method.POST, url, myListener, myErrorListener);
+        // リクエストのタイムアウトなどの設定
+        myRequest.setRetryPolicy(new com.android.volley.DefaultRetryPolicy(
+                10000,
+                com.android.volley.DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                com.android.volley.DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        myRequest.setParams(params);
+        // リクエストキューにリクエスト追加
+        mQueue.add(myRequest);
+    }
+
+    /**
+     * レスポンス受信のリスナー
+     */
+    private Response.Listener<JSONObject> myListener = new Response.Listener<JSONObject>() {
+        @Override
+        public void onResponse(JSONObject response) {
+
+            Log.v("Request Success:",response.toString());
+            if(mIsPlayFlag)
+            {
+                try{
+                    JSONObject jobject = new JSONObject(response.toString());
+                    XawalyJSONObject xo = new XawalyJSONObject(jobject);
+                }catch (JSONException ex){
+                    Log.v("JSONException", ex.getMessage());
+                }
+
+            }
+        }
+    };
+    /**
+     * リクエストエラーのリスナー
+     */
+    private com.android.volley.Response.ErrorListener myErrorListener = new com.android.volley.Response.ErrorListener() {
+        @Override
+        public void onErrorResponse(com.android.volley.VolleyError error) {
+            Log.e("Request Error", error.getMessage());
+        }
+    };
+
+
 
     public static synchronized AppController getInstance() {
         return mInstance;

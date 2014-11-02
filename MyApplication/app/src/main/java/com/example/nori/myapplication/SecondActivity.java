@@ -68,9 +68,11 @@ public class SecondActivity extends Activity {
         }
     }
 
+
     @Override
     protected void onStop() {
         super.onStop();
+        /*
         try{
             mJsonObject.put("action",mActionObject);
             Log.v("Json",mJsonObject.toString());
@@ -78,6 +80,7 @@ public class SecondActivity extends Activity {
             Log.e("Error",ex.getMessage());
         }
         if(!mApp.mIsPlayFlag)request(mSendURL,mJsonObject.toString());
+        */
     }
 
     public void request(String url,String Param){
