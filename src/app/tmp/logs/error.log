@@ -28,3 +28,369 @@ Stack Trace:
 #0 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 /Users/masanorihashimoto/Documents/github/xawaly/src/php.php(41): require('/Users/masanori...')
 #2 {main}
+2014-11-02 03:23:04 Error: [MissingControllerException] Controller class SrcController could not be found.
+Exception Attributes: array (
+  'class' => 'SrcController',
+  'plugin' => NULL,
+)
+Request URL: /src/php.php
+Stack Trace:
+#0 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-02 03:24:22 Error: [MissingControllerException] Controller class SessionsController could not be found.
+Exception Attributes: array (
+  'class' => 'SessionsController',
+  'plugin' => NULL,
+)
+Request URL: /sessions/getSettion?id=1
+Stack Trace:
+#0 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-02 03:24:32 Error: [NotFoundException] Invalid post
+Request URL: /session/getSettion?id=1
+Stack Trace:
+#0 [internal function]: SessionController->getSettion()
+#1 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(SessionController), Array)
+#2 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#3 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(SessionController), Object(CakeRequest))
+#4 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-11-02 03:25:00 Error: [NotFoundException] Invalid post
+Request URL: /session/get?id=1
+Stack Trace:
+#0 [internal function]: SessionController->get()
+#1 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(SessionController), Array)
+#2 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#3 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(SessionController), Object(CakeRequest))
+#4 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-11-02 03:25:25 Error: [NotFoundException] Invalid post
+Request URL: /session/get?id=1
+Stack Trace:
+#0 [internal function]: SessionController->get()
+#1 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(SessionController), Array)
+#2 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#3 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(SessionController), Object(CakeRequest))
+#4 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-11-02 03:25:26 Error: [NotFoundException] Invalid post
+Request URL: /session/get
+Stack Trace:
+#0 [internal function]: SessionController->get()
+#1 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(SessionController), Array)
+#2 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#3 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(SessionController), Object(CakeRequest))
+#4 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-11-02 03:39:31 Error: [MissingControllerException] Controller class SessionController could not be found.
+Exception Attributes: array (
+  'class' => 'SessionController',
+  'plugin' => NULL,
+)
+Request URL: /session/get
+Stack Trace:
+#0 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-02 03:39:32 Error: [MissingActionException] Action SessionsController::getSettion() could not be found.
+Exception Attributes: array (
+  'controller' => 'SessionsController',
+  'action' => 'getSettion',
+)
+Request URL: /sessions/getSettion?id=1
+Stack Trace:
+#0 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(SessionsController), Object(CakeRequest))
+#2 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-11-02 03:39:35 Error: [MissingViewException] View file "/Users/masanorihashimoto/Documents/github/xawaly/src/app/View/Sessions/hello.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/Users/masanorihashimoto/Documents/github/xawaly/src/app/View/Sessions/hello.ctp',
+)
+Request URL: /sessions/hello
+Stack Trace:
+#0 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(SessionsController), Object(CakeRequest))
+#4 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-11-02 03:41:10 Error: [MissingActionException] Action SessionsController::getSettion() could not be found.
+Exception Attributes: array (
+  'controller' => 'SessionsController',
+  'action' => 'getSettion',
+)
+Request URL: /sessions/getSettion?id=1
+Stack Trace:
+#0 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(SessionsController), Object(CakeRequest))
+#2 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-11-02 03:41:15 Error: [MissingActionException] Action SessionsController::getSettion() could not be found.
+Exception Attributes: array (
+  'controller' => 'SessionsController',
+  'action' => 'getSettion',
+)
+Request URL: /sessions/getSettion?id=1
+Stack Trace:
+#0 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(SessionsController), Object(CakeRequest))
+#2 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-11-02 03:41:15 Error: [NotFoundException] Invalid post
+Request URL: /sessions/get
+Stack Trace:
+#0 [internal function]: SessionsController->get()
+#1 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(SessionsController), Array)
+#2 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#3 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(SessionsController), Object(CakeRequest))
+#4 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-11-02 03:41:51 Error: [MissingViewException] View file "/Users/masanorihashimoto/Documents/github/xawaly/src/app/View/Sessions/get.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/Users/masanorihashimoto/Documents/github/xawaly/src/app/View/Sessions/get.ctp',
+)
+Request URL: /sessions/get
+Stack Trace:
+#0 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(SessionsController), Object(CakeRequest))
+#4 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-11-02 03:42:07 Error: [MissingViewException] View file "/Users/masanorihashimoto/Documents/github/xawaly/src/app/View/Sessions/device.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/Users/masanorihashimoto/Documents/github/xawaly/src/app/View/Sessions/device.ctp',
+)
+Request URL: /sessions/device
+Stack Trace:
+#0 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(SessionsController), Object(CakeRequest))
+#4 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-11-02 03:42:26 Error: [MissingViewException] View file "/Users/masanorihashimoto/Documents/github/xawaly/src/app/View/Sessions/device.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/Users/masanorihashimoto/Documents/github/xawaly/src/app/View/Sessions/device.ctp',
+)
+Request URL: /sessions/device
+Stack Trace:
+#0 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(SessionsController), Object(CakeRequest))
+#4 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-11-02 03:42:47 Error: [MissingViewException] View file "/Users/masanorihashimoto/Documents/github/xawaly/src/app/View/Sessions/device.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/Users/masanorihashimoto/Documents/github/xawaly/src/app/View/Sessions/device.ctp',
+)
+Request URL: /sessions/device
+Stack Trace:
+#0 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(SessionsController), Object(CakeRequest))
+#4 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-11-02 03:45:50 Error: [NotFoundException] Invalid post
+Request URL: /sessions/device
+Stack Trace:
+#0 [internal function]: SessionsController->device()
+#1 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(SessionsController), Array)
+#2 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#3 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(SessionsController), Object(CakeRequest))
+#4 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-11-02 03:46:00 Error: [NotFoundException] Invalid post
+Request URL: /sessions/device
+Stack Trace:
+#0 [internal function]: SessionsController->device()
+#1 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(SessionsController), Array)
+#2 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#3 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(SessionsController), Object(CakeRequest))
+#4 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-11-02 03:46:20 Error: [NotFoundException] Invalid post
+Request URL: /sessions/sample.json
+Stack Trace:
+#0 [internal function]: SessionsController->sample()
+#1 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(SessionsController), Array)
+#2 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#3 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(SessionsController), Object(CakeRequest))
+#4 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-11-02 03:48:21 Error: [MissingViewException] View file "/Users/masanorihashimoto/Documents/github/xawaly/src/app/View/Sessions/json/sample.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/Users/masanorihashimoto/Documents/github/xawaly/src/app/View/Sessions/json/sample.ctp',
+)
+Request URL: /sessions/sample.json
+Stack Trace:
+#0 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/View/JsonView.php(107): View->_getViewFileName(NULL)
+#1 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Controller/Controller.php(954): JsonView->render(NULL, NULL)
+#2 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(SessionsController), Object(CakeRequest))
+#4 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-11-02 04:05:29 Error: [MissingViewException] View file "/Users/masanorihashimoto/Documents/github/xawaly/src/app/View/Sessions/json/sample.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/Users/masanorihashimoto/Documents/github/xawaly/src/app/View/Sessions/json/sample.ctp',
+)
+Request URL: /sessions/sample.json
+Stack Trace:
+#0 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/View/JsonView.php(107): View->_getViewFileName(NULL)
+#1 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Controller/Controller.php(954): JsonView->render(NULL, NULL)
+#2 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(SessionsController), Object(CakeRequest))
+#4 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-11-02 04:12:55 Error: [NotFoundException] Invalid post
+Request URL: /sessions/sample.json
+Stack Trace:
+#0 [internal function]: SessionsController->sample()
+#1 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(SessionsController), Array)
+#2 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#3 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(SessionsController), Object(CakeRequest))
+#4 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-11-02 04:13:05 Error: [MissingActionException] Action SessionsController::sample.json() could not be found.
+Exception Attributes: array (
+  'controller' => 'SessionsController',
+  'action' => 'sample.json',
+)
+Request URL: /sessions/sample.json/1
+Stack Trace:
+#0 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(SessionsController), Object(CakeRequest))
+#2 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-11-02 04:13:15 Error: Fatal Error (1): Call to undefined method SessionComponent::findById() in [/Users/masanorihashimoto/Documents/github/xawaly/src/app/Controller/SessionsController.php, line 11]
+2014-11-02 04:13:15 Error: [FatalErrorException] Call to undefined method SessionComponent::findById()
+Request URL: /sessions/sample/1.json
+Stack Trace:
+#0 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/Users/masanori...', 11)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/Users/masanori...', 11, Array)
+#2 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/Users/masanori...', 11, Array)
+#3 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-11-02 04:19:28 Error: [MissingControllerException] Controller class TrackController could not be found.
+Exception Attributes: array (
+  'class' => 'TrackController',
+  'plugin' => NULL,
+)
+Request URL: /track/sample/1.json
+Stack Trace:
+#0 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-02 04:19:40 Error: [MissingControllerException] Controller class TracksController could not be found.
+Exception Attributes: array (
+  'class' => 'TracksController',
+  'plugin' => NULL,
+)
+Request URL: /tracks/sample/1.json
+Stack Trace:
+#0 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-02 04:20:10 Error: Fatal Error (1): Call to undefined method SessionComponent::findById() in [/Users/masanorihashimoto/Documents/github/xawaly/src/app/Controller/TracksController.php, line 11]
+2014-11-02 04:20:10 Error: [FatalErrorException] Call to undefined method SessionComponent::findById()
+Request URL: /tracks/sample/1.json
+Stack Trace:
+#0 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/Users/masanori...', 11)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/Users/masanori...', 11, Array)
+#2 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/Users/masanori...', 11, Array)
+#3 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-11-02 04:20:22 Error: [MissingTableException] Table tracks for model Track was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'tracks',
+  'class' => 'Track',
+  'ds' => 'default',
+)
+Request URL: /tracks/sample/1.json
+Stack Trace:
+#0 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Model/Model.php(3566): Model->setSource('tracks')
+#1 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Model/Model.php(808): Model->getDataSource()
+#2 /Users/masanorihashimoto/Documents/github/xawaly/src/app/Controller/TracksController.php(11): Model->__call('findById', Array)
+#3 /Users/masanorihashimoto/Documents/github/xawaly/src/app/Controller/TracksController.php(11): Track->findById('1')
+#4 [internal function]: TracksController->sample('1')
+#5 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(TracksController), Array)
+#6 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#7 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(TracksController), Object(CakeRequest))
+#8 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2014-11-02 04:54:19 Error: [MissingViewException] View file "/Users/masanorihashimoto/Documents/github/xawaly/src/app/View/Tracks/json/record.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/Users/masanorihashimoto/Documents/github/xawaly/src/app/View/Tracks/json/record.ctp',
+)
+Request URL: /tracks/record/1.json
+Stack Trace:
+#0 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/View/JsonView.php(107): View->_getViewFileName(NULL)
+#1 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Controller/Controller.php(954): JsonView->render(NULL, NULL)
+#2 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(TracksController), Object(CakeRequest))
+#4 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-11-02 05:00:26 Error: [NotFoundException] Invalid post
+Request URL: /tracks/record/1.json
+Stack Trace:
+#0 [internal function]: TracksController->record('1')
+#1 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(TracksController), Array)
+#2 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#3 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(TracksController), Object(CakeRequest))
+#4 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-11-02 05:41:34 Error: [MissingActionException] Action TracksController::sample() could not be found.
+Exception Attributes: array (
+  'controller' => 'TracksController',
+  'action' => 'sample',
+)
+Request URL: /tracks/sample/1.json
+Stack Trace:
+#0 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(TracksController), Object(CakeRequest))
+#2 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-11-02 05:41:36 Error: [MissingActionException] Action TracksController::sample() could not be found.
+Exception Attributes: array (
+  'controller' => 'TracksController',
+  'action' => 'sample',
+)
+Request URL: /tracks/sample/1.json
+Stack Trace:
+#0 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(TracksController), Object(CakeRequest))
+#2 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-11-02 05:41:42 Error: [MissingActionException] Action TracksController::sample() could not be found.
+Exception Attributes: array (
+  'controller' => 'TracksController',
+  'action' => 'sample',
+)
+Request URL: /tracks/sample/1.json
+Stack Trace:
+#0 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(TracksController), Object(CakeRequest))
+#2 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-11-02 05:41:55 Error: [MissingActionException] Action TracksController::sample() could not be found.
+Exception Attributes: array (
+  'controller' => 'TracksController',
+  'action' => 'sample',
+)
+Request URL: /tracks/sample/1.json
+Stack Trace:
+#0 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(TracksController), Object(CakeRequest))
+#2 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-11-02 06:05:24 Error: [NotFoundException] Invalid post
+Request URL: /tracks/record/3.json
+Stack Trace:
+#0 [internal function]: TracksController->record('3')
+#1 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(TracksController), Array)
+#2 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#3 /Users/masanorihashimoto/Documents/github/xawaly/src/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(TracksController), Object(CakeRequest))
+#4 /Users/masanorihashimoto/Documents/github/xawaly/src/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
