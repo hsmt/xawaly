@@ -30,6 +30,11 @@ class TracksController extends Controller {
 			$this->Track['os'] = $actions['os'];
 
 			$this->Track->save();
+			
+			$result = ['status' => 'complete', 'msg' => 'Request completed.'];
+			$this->viewClass = 'Json';
+			$this->set(compact('result'));
+			$this->set('_serialize', 'result');
 		}
 	}
 }
