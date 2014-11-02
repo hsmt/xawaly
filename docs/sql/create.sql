@@ -1,4 +1,4 @@
-CREATE TABLE sessions (
+CREATE TABLE tracks (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     device VARCHAR(50),
     os VARCHAR(50),
@@ -10,7 +10,7 @@ CREATE TABLE sessions (
     modified DATETIME DEFAULT NULL
 );
 
-INSERT INTO sessions (
+INSERT INTO tracks (
   device,
   os,
   name,

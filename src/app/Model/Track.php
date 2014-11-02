@@ -17,5 +17,5 @@ App::uses('Model', 'Model');
  *
  * @package       app.Model
  */
-class Session extends Model {
+class Track extends Model {
 }
